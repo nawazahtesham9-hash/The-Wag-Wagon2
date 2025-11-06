@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wag On Wheels — Mobile Pet Spa</title>
+  <meta name="description" content="Wag On Wheels — Mobile pet grooming & spa. We bring the groom to your doorstep. Services: bathing, grooming, nail trim, de-shedding."/>
+  <style>
+    :root{
+      --bg:#fff;
+      --accent:#ff7a59;
+      --muted:#6b7280;
+      --card:#ffffff;
+      --maxw:1100px;
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,#f7fafc,#ffffff);color:#0f1724;-webkit-font-smoothing:antialiased}
+    .container{max-width:var(--maxw);margin:32px auto;padding:20px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#ffb199);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:20px}
+    nav a{margin-left:16px;text-decoration:none;color:var(--muted);font-weight:600}
+    nav a.cta{background:var(--accent);color:#fff;padding:8px 12px;border-radius:10px;margin-left:18px}
+    .hero{display:grid;grid-template-columns:1fr 380px;gap:20px;align-items:center;margin-top:22px}
+    .hero .title{font-size:34px;line-height:1.02;margin:0 0 12px}
+    .hero p{color:var(--muted);margin:0 0 18px}
+    .book-card{background:var(--card);padding:18px;border-radius:14px;box-shadow:0 8px 28px rgba(15,23,36,0.06)}
+    .book-card label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
+    .book-card input, .book-card select, .book-card textarea{width:100%;padding:10px;border-radius:8px;border:1px solid #e6e9ef;margin-bottom:10px}
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;background:var(--accent);color:white;text-decoration:none;font-weight:700;border:none;cursor:pointer}
+    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
+    .service{background:var(--card);padding:16px;border-radius:12px;box-shadow:0 6px 18px rgba(15,23,36,0.04);text-align:center}
+    .service h4{margin:8px 0 6px}
+    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}
+    .gallery img{width:100%;height:200px;object-fit:cover;border-radius:10px;display:block;cursor:zoom-in}
+    .testimonials{margin-top:20px}
+    .testimonial{background:linear-gradient(180deg,#fff,#fff);padding:14px;border-radius:12px;border:1px solid #f1f5f9;margin-bottom:10px}
+    footer{margin-top:28px;padding:18px 0;color:var(--muted);text-align:center;font-size:13px}
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr}
+      .services{grid-template-columns:repeat(2,1fr)}
+      .gallery{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:560px){
+      .services{grid-template-columns:1fr}
+      .gallery{grid-template-columns:1fr}
+      nav{display:none}
+      header{gap:8px}
+    }
+    /* lightbox */
+    .lightbox{position:fixed;inset:0;background:rgba(2,6,23,0.8);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .15s}
+    .lightbox.show{opacity:1;pointer-events:auto}
+    .lightbox img{max-width:94%;max-height:86%;border-radius:10px;box-shadow:0 10px 40px rgba(2,6,23,0.6)}
+    .close-x{position:absolute;top:22px;right:22px;background:transparent;border:none;color:#fff;font-size:16px;padding:8px;border-radius:8px}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">W W</div>
+        <div>
+          <div style="font-weight:700">Wag On Wheels</div>
+          <div style="font-size:13px;color:var(--muted)">Mobile Pet Spa & Grooming</div>
+        </div>
+      </div>
+      <nav aria-label="Main navigation">
+        <a href="#services">Services</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+        <a href="#book" class="cta">Book Now</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div>
+        <h1 class="title">We bring the spa to your doorstep — calm grooming for happy pets</h1>
+        <p>Full-service mobile grooming for dogs & cats: baths, haircuts, nail trims, de-shedding, and gentle handling by certified groomers. Relaxing environment for your pet, convenience for you.</p>
+        <div style="display:flex;gap:10px;align-items:center;margin-top:12px">
+          <a class="btn" href="#book">Book a Visit</a>
+          <a class="btn" href="#contact" style="background:transparent;color:var(--accent);border:1px solid rgba(255,122,89,0.12)">Contact Us</a>
+        </div>
+
+        <div class="services" id="services">
+          <div class="service">
+            <img src="https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Bathing" style="width:100%;height:120px;object-fit:cover;border-radius:8px">
+            <h4>Bath & Blow-dry</h4>
+            <div style="color:var(--muted);font-size:13px">Gentle shampoo, soothing dry</div>
+          </div>
+          <div class="service">
+            <img src="https://images.unsplash.com/photo-1507146426996-ef05306b995a?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Grooming" style="width:100%;height:120px;object-fit:cover;border-radius:8px">
+            <h4>Full Groom</h4>
+            <div style="color:var(--muted);font-size:13px">Breed cuts, trims & styling</div>
+          </div>
+          <div class="service">
+            <img src="https://images.unsplash.com/photo-1543852786-1cf6624b9987?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Nail Trim" style="width:100%;height:120px;object-fit:cover;border-radius:8px">
+            <h4>Nails & Paw Care</h4>
+            <div style="color:var(--muted);font-size:13px">Clipping, filing, pad care</div>
+          </div>
+        </div>
+
+        <div class="testimonials" style="margin-top:18px">
+          <div class="testimonial">
+            <strong>Sarah J.</strong>
+            <div style="color:var(--muted);font-size:13px">“Wag On Wheels made grooming stress-free for our Labrador. The groomer was kind and professional.”</div>
+          </div>
+          <div class="testimonial">
+            <strong>Marcus P.</strong>
+            <div style="color:var(--muted);font-size:13px">“Booked a same-week visit — quick, safe, and our pup looks fantastic.”</div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="book-card" id="book" aria-labelledby="booking">
+        <div id="booking" style="font-weight:700;margin-bottom:6px">Request a booking</div>
+        <form id="bookingForm" onsubmit="event.preventDefault(); alert('Thanks! We received your booking request. (This is a demo)')">
+          <label for="name">Name</label>
+          <input id="name" placeholder="Your full name" required>
+          <label for="phone">Phone</label>
+          <input id="phone" placeholder="+1 (555) 555-5555" required>
+          <label for="pet">Pet (name & type)</label>
+          <input id="pet" placeholder="Buddy — Dog, 25kg" required>
+          <label for="service">Service</label>
+          <select id="service">
+            <option>Bath & Blow-dry</option>
+            <option>Full Groom</option>
+            <option>Nails & Paw Care</option>
+            <option>Deshedding</option>
+          </select>
+          <label for="date">Preferred date</label>
+          <input id="date" type="date">
+          <div style="display:flex;gap:8px;align-items:center;margin-top:6px">
+            <button class="btn" type="submit">Send booking</button>
+            <a href="mailto:hello@wagonwheels.example" style="font-size:13px;color:var(--muted);text-decoration:none">Or email: hello@wagonwheels.example</a>
+          </div>
+        </form>
+
+        <div style="margin-top:12px;color:var(--muted);font-size:13px">
+          Serving: Downtown & nearby suburbs • Certified groomers • Pet-first approach
+        </div>
+      </aside>
+    </section>
+
+    <section id="gallery" style="margin-top:22px">
+      <h3 style="margin:0 0 10px">Gallery</h3>
+      <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1507149833265-60c372daea22?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="dog1" data-full="https://images.unsplash.com/photo-1507149833265-60c372daea22?q=80&w=2600&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder">
+        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="dog2" data-full="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=2600&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder">
+        <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="dog3" data-full="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=2600&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder">
+        <img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="dog4" data-full="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?q=80&w=2600&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder">
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="dog5" data-full="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=2600&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder">
+        <img src="https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="dog6" data-full="https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?q=80&w=2600&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder">
+      </div>
+    </section>
+
+    <section id="contact" style="margin-top:22px">
+      <h3 style="margin:0 0 10px">Contact & Location</h3>
+      <div class="book-card" style="display:flex;gap:12px;align-items:flex-start;flex-wrap:wrap">
+        <div style="flex:1;min-width:240px">
+          <div style="font-weight:700">Wag On Wheels</div>
+          <div style="color:var(--muted);margin-top:6px">Mobile grooming serving Downtown, Uptown, and nearby neighborhoods.</div>
+          <div style="margin-top:10px"><strong>Phone:</strong> +1 (555) 555-5555</div>
+          <div style="margin-top:6px"><strong>Email:</strong> hello@wagonwheels.example</div>
+        </div>
+        <div style="flex:1;min-width:240px">
+          <form onsubmit="event.preventDefault(); alert('Thanks — message sent (demo)')">
+            <input placeholder="Your name" style="padding:10px;border-radius:8px;border:1px solid #e6e9ef;width:100%;margin-bottom:8px">
+            <input placeholder="Email" style="padding:10px;border-radius:8px;border:1px solid #e6e9ef;width:100%;margin-bottom:8px">
+            <textarea placeholder="Message" rows="3" style="padding:10px;border-radius:8px;border:1px solid #e6e9ef;width:100%"></textarea>
+            <div style="margin-top:8px"><button class="btn" type="submit">Send</button></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © 2025 Wag On Wheels • Calm grooming, happy pets
+    </footer>
+  </div>
+
+  <div id="lightbox" class="lightbox" role="dialog" aria-hidden="true">
+    <button class="close-x" id="lbClose">✕</button>
+    <img id="lbImage" src="" alt="Expanded image">
+  </div>
+
+  <script>
+    // gallery lightbox
+    document.querySelectorAll('.gallery img').forEach(img=>{
+      img.addEventListener('click',()=>{
+        const lb = document.getElementById('lightbox');
+        const lbImg = document.getElementById('lbImage');
+        lbImg.src = img.dataset.full || img.src;
+        lb.classList.add('show');
+        lb.setAttribute('aria-hidden','false');
+      });
+    });
+    document.getElementById('lbClose').addEventListener('click',()=>{
+      const lb = document.getElementById('lightbox');
+      lb.classList.remove('show');
+      lb.setAttribute('aria-hidden','true');
+      document.getElementById('lbImage').src = '';
+    });
+    document.getElementById('lightbox').addEventListener('click',(e)=>{
+      if(e.target.id === 'lightbox') document.getElementById('lbClose').click();
+    });
+
+    // simple form demo handlers included inline above
+  </script>
+</body>
+</html>
