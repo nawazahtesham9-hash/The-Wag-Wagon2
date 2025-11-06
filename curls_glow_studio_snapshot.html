@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Curls Glow Studio — Preview Wrapper</title>
+  <style>
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:#f6f7fb}
+    .topbar{height:56px;display:flex;align-items:center;gap:12px;padding:0 16px;background:#fff;border-bottom:1px solid #e6e9ef}
+    .brand{font-weight:700}
+    .controls{margin-left:auto;display:flex;gap:8px}
+    .btn{padding:8px 12px;border-radius:8px;border:1px solid #d0d6e0;background:#fff;cursor:pointer}
+    .frame-wrap{height:calc(100% - 56px)}
+    iframe{width:100%;height:100%;border:0}
+    .notice{padding:12px;text-align:center;color:#334155}
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand">Curls Glow Studio — Preview</div>
+    <div class="controls">
+      <button class="btn" id="openNew">Open in new tab</button>
+      <button class="btn" id="saveLocal">Download this wrapper HTML</button>
+    </div>
+  </div>
+
+  <div class="frame-wrap">
+    <!-- Embed the live preview inside an iframe. If the preview blocks embedding, use the link below. -->
+    <iframe id="previewFrame" src="https://curls-glow-studio.lovable.app/" title="Curls Glow Studio preview"></iframe>
+  </div>
+
+  <div class="notice">If the site prevents embedding, click "Open in new tab" to view the live preview directly.</div>
+
+  <script>
+    const openNew = document.getElementById('openNew');
+    const saveLocal = document.getElementById('saveLocal');
+
+    openNew.addEventListener('click', ()=>{
+      window.open('https://curls-glow-studio.lovable.app/','_blank');
+    });
+
+    // Offer download of this HTML file itself
+    saveLocal.addEventListener('click', ()=>{
+      const blob = new Blob([document.documentElement.outerHTML], {type: 'text/html'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'curls-glow-studio_snapshot.html';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    });
+  </script>
+</body>
+</html>
